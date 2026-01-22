@@ -140,11 +140,11 @@ body {
 }
 
 .birthday-heading {
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 25px;
-  letter-spacing: 2px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
   text-transform: lowercase;
   font-family: "Georgia", "Palatino", serif;
   text-shadow:
@@ -157,11 +157,11 @@ body {
 }
 
 .birthday-subtitle {
-  font-size: 1.25rem;
+  font-size: 0.75rem;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 50px;
-  line-height: 1.7;
+  margin-bottom: 30px;
+  line-height: 1.5;
   letter-spacing: 0.5px;
   text-shadow:
     0 2px 10px rgba(0, 0, 0, 0.4),
