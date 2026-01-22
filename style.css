@@ -139,12 +139,13 @@ body {
   filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6));
 }
 
+/* Updated font size v2 */
 .birthday-heading {
-  font-size: 1.3rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
   text-transform: lowercase;
   font-family: "Georgia", "Palatino", serif;
   text-shadow:
