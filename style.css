@@ -141,10 +141,10 @@ body {
 
 /* Updated font size v2 */
 .birthday-heading {
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 25px;
   letter-spacing: 0.3px;
   text-transform: lowercase;
   font-family: "Georgia", "Palatino", serif;
@@ -396,7 +396,7 @@ body {
   }
 
   .birthday-heading {
-    font-size: 0.95rem;
+    font-size: 1.6rem;
   }
 }
 
