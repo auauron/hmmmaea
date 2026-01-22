@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
+    />
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Ambient Background Particles -->
+    <div class="ambient-particles" id="particles"></div>
+
+    <!-- Screen 1: Intro -->
+    <section class="screen active" id="intro">
+      <div class="content fade-in">
+        <h1 class="main-greeting">Hi</h1>
+        <p class="sub-greeting">Pinduta lang ang sa dalom!🥹</p>
+        <button class="primary-button" id="startButton">Open</button>
+      </div>
+    </section>
+
+    <!-- Screen 2: Birthday Reveal -->
+    <section class="screen" id="reveal">
+      <div class="floating-hearts" id="floatingHearts"></div>
+      <div class="content">
+        <h1 class="birthday-heading">Happy Birthday, Atesha! 🩷</h1>
+        <p class="birthday-subtitle">
+          Wishing you the happiest happy of birthdays, Teshi!! Thank you so much
+          for always being there, sa pag upod play too. I wish you all
+          the best things life has to offer, and I truly hope life becomes much
+          gentler and kinder to you. May more opportunities come your way and
+          even more blessings find you. Go get that nursing degree — I believe
+          in you !! 🫶
+        </p>
+      </div>
+    </section>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+      <source src="laufey.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>

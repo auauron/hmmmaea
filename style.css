@@ -1,0 +1,500 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue",
+    sans-serif;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: #ffc0cb !important;
+}
+
+/* Ambient Particles */
+.ambient-particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 200, 220, 0.8), transparent);
+  border-radius: 50%;
+  animation:
+    float 8s ease-in-out infinite,
+    sparkle 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+}
+
+/* Screen Base */
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease;
+  z-index: 2;
+}
+
+.screen.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Content Wrapper */
+.content {
+  text-align: center;
+  padding: 40px;
+  max-width: 90%;
+}
+
+.fade-in {
+  animation: fadeInUp 1.5s ease;
+}
+
+/* Screen 1: Intro */
+.main-greeting {
+  font-size: 4rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.85);
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  animation: textGlow 3s ease-in-out infinite;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(255, 182, 193, 0.6);
+}
+
+.sub-greeting {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+.primary-button {
+  background: rgba(255, 192, 203, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 18px 45px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(255, 105, 180, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 240px;
+  animation: buttonPulse 2s ease-in-out infinite;
+  letter-spacing: 0.5px;
+}
+
+.primary-button:active {
+  transform: scale(0.96);
+  box-shadow:
+    0 4px 16px rgba(255, 182, 193, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Screen 2: Birthday Reveal */
+#reveal {
+  position: relative;
+}
+
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  opacity: 0;
+  animation:
+    floatUpHeart 5s ease-in infinite,
+    heartSpin 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6));
+}
+
+.birthday-heading {
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  font-family: "Georgia", "Palatino", serif;
+  text-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.3),
+    0 6px 30px rgba(255, 105, 180, 0.5),
+    0 0 50px rgba(255, 20, 147, 0.3);
+  animation:
+    gentleScale 0.8s ease,
+    shimmer 4s ease-in-out infinite 1s;
+}
+
+.birthday-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 50px;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.4),
+    0 4px 20px rgba(255, 20, 147, 0.3);
+  animation:
+    fadeInUp 1s ease 0.3s both,
+    floatText 3s ease-in-out infinite 2s;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 25px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 6px 24px rgba(255, 182, 193, 0.2),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.2s ease 0.6s both;
+  position: relative;
+  z-index: 10;
+}
+
+.secondary-button:active {
+  transform: scale(0.96);
+}
+
+/* Screen 3: Final Message */
+#finale {
+  position: relative;
+}
+
+.glow-effect {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 192, 203, 0.3), transparent);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: gentlePulse 4s ease-in-out infinite;
+}
+
+.message-container {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.typewriter-text {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 2;
+  white-space: pre-line;
+  letter-spacing: 0.5px;
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-100vh) translateX(20px);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUpHeart {
+  0% {
+    bottom: -50px;
+    opacity: 0;
+    transform: translateX(0) rotate(0deg);
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    bottom: 110%;
+    opacity: 0;
+    transform: translateX(30px) rotate(15deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gentlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 20px rgba(255, 255, 255, 0.5),
+      0 0 40px rgba(255, 182, 193, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba(255, 255, 255, 0.9),
+      0 0 60px rgba(255, 182, 193, 0.8),
+      0 0 90px rgba(255, 105, 180, 0.6);
+  }
+}
+
+@keyframes buttonPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 8px 32px rgba(255, 105, 180, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow:
+      0 12px 48px rgba(255, 105, 180, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.2) saturate(1.3);
+  }
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+}
+
+@keyframes floatText {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes heartSpin {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-5deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 375px) {
+  .main-greeting {
+    font-size: 3.2rem;
+  }
+
+  .birthday-heading {
+    font-size: 3rem;
+  }
+
+  .typewriter-text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 414px) {
+  .main-greeting {
+    font-size: 4.5rem;
+  }
+
+  .birthday-heading {
+    font-size: 4rem;
+  }
+}
+
+/* Landscape adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .main-greeting {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .sub-greeting {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .birthday-heading {
+    font-size: 2.8rem;
+  }
+
+  .typewriter-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Additional Lovely Animations */
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 20px rgba(255, 255, 255, 0.5),
+      0 0 40px rgba(255, 182, 193, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba(255, 255, 255, 0.9),
+      0 0 60px rgba(255, 182, 193, 0.8),
+      0 0 90px rgba(255, 105, 180, 0.6);
+  }
+}
+
+@keyframes buttonPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 8px 32px rgba(255, 105, 180, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow:
+      0 12px 48px rgba(255, 105, 180, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.2) saturate(1.3);
+  }
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+}
+
+@keyframes floatText {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes heartSpin {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-5deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
