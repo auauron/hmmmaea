@@ -65,7 +65,7 @@ function createFloatingHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.textContent = "❤️";
+    heart.textContent = "🩷";
     heart.style.left = Math.random() * 90 + 5 + "%";
     heart.style.fontSize = Math.random() * 15 + 20 + "px";
     heart.style.animationDuration = Math.random() * 2 + 4 + "s";
